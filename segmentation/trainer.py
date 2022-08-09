@@ -128,7 +128,7 @@ class Trainer(object):
         """
 
         for n_batch, (sample_batched) in enumerate(self.train_loader):
-            if n_batch % 1000 == 0: print("Completed 1000", n_batch)
+            if n_batch % 100 == 0: print("Completed 100", n_batch)
             self.model.train()
             data = sample_batched['image']
             target = sample_batched['annotation']
