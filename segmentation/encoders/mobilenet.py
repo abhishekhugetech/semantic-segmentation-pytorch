@@ -19,7 +19,7 @@ class _Mobilenet(SqueezeExtractor):
 		super(_Mobilenet, self).__init__(model, layers, fixed_feature)
 
 	def _get_layers(self, features, layer, layers, zip_cnt):
-		from torchvision.models.mobilenet import InvertedResidual, ConvBNReLU
+		from torchvision.models.mobilenetv2 import InvertedResidual, ConvBNReLU
 
 		for feature in features.children():
 			if isinstance(feature, nn.Sequential) or\
