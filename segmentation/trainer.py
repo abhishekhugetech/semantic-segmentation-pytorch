@@ -118,12 +118,17 @@ class Trainer(object):
 
         if self.test_loader:
             dataloader_iterator = iter(self.test_loader)
-
-        for n_batch, (sample_batched) in tqdm(enumerate(self.train_loader),
+            
+        """
+        tqdm(enumerate(self.train_loader),
                                               total=num_batches,
                                               leave=False,
                                               desc="Train epoch={}".format(self.epoch),
                                               ncols=TQDM_COLS):
+        """
+
+        for n_batch, (sample_batched) in enumerate(self.train_loader):
+            if n_batch % 1000 == 0: print("Completed 1000", n_batch)
             self.model.train()
             data = sample_batched['image']
             target = sample_batched['annotation']
